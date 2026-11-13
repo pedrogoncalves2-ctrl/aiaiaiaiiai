@@ -1,7 +1,7 @@
 const adicionarHabilidades = document.getElementById('adicionar_habilidades');
-        const habilidadesContainer = document.getElementById('habilidades_container');
-        const adicionarExperiencia = document.getElementById('adicionar_experiencia');
-        const experienciasContainer = document.getElementById('experiencias_container');
+const habilidadesContainer = document.getElementById('habilidades_container');
+const adicionarExperiencia = document.getElementById('adicionar_experiencia');
+const experienciasContainer = document.getElementById('experiencias_container');
 
         adicionarHabilidades.addEventListener('click', function() {
             const novoCampo = document.createElement('textarea');
