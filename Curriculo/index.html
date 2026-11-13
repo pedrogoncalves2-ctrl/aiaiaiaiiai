@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gerador de Currículo</title>
+</head>
+<body>
+    <h1>Gerador de Currículos</h1>
+    <form action="gerar_curriculo.php" method="post">
+        <div class="personal-info">
+            <h3>Dados Pessoais</h3>
+            <label for="nome">Nome Completo: </label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label for="cidade">Cidade: </label>
+            <input type="text" id="cidade" name="cidade" required><br><br>
+            <label for="telefone">Número de Telefone: </label>
+            <input type="text" id="telefone" name="telefone" required><br><br>
+            <label for="email">E-mail: </label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="nascimento">Data de Nascimento: </label>
+            <input type="date" id="nascimento" name="nascimento" required><br><br>
+            <label for="nacionalidade">Nacionalidade: </label>
+            <input type="text" id="nacionalidade" name="nacionalidade" required><br><br>
+            <label for="naturalidade">Naturalidade: </label>
+            <input type="text" id="naturalidade" name="naturalidade" required><br><br>
+        </div>
+        
+        <div class="formation">
+            <h3>Formação Acadêmica</h3>
+            <label for="curso">Curso: </label><br>
+            <textarea id="cursos" name="cursos" required></textarea><br>
+            <label for="status">Status: </label><br>
+            <input type="radio" id="status_Cursando" name="status" value="Cursando">
+            <label for="status">Cursando</label><br>
+            <input type="radio" id="status_Concluído" name="status" value="Concluído">
+            <label for="status">Concluído</label><br>
+            <label for="ano_conclusao">Ano de Conclusão: </label><br>
+            <input type="number" id="ano_conclusao" name="ano_conclusao" required>
+        </div>
+        <div class="habilities">
+            <h3>Habilidades</h3>
+            <div id="habilidades_container">
+                <label for="habilidades">Descreva suas habilidades: </label><br>
+                <textarea id="habilidades" name="habilidades[]" placeholder="Descreva uma habilidade" required></textarea><br>
+            </div>
+            <label for="idiomas">Idiomas: </label><br>
+            <textarea id="idiomas" name="idiomas" required></textarea><br><br>
+            <button type="button" class="add-button" id="adicionar_habilidades">+ Adicionar habilidade</button>
+        </div>
+
+
+        <div class="experience">
+            <h3>Experiência Profissional</h3>
+            <div id="experiencias_container">
+                <div class="experience-item">
+                    <label for="experiencia">Trabalho: </label><br>
+                    <textarea id="experiencia" name="experiencia[]" required></textarea><br>
+                    <input type="radio" id="status_atual" name="status_experiencia[0]" value="atual">
+                    <label for="status_atual">Trabalho Atual</label><br>
+                    <input type="radio" id="status_anterior" name="status_experiencia[0]" value="anterior">
+                    <label for="status_anterior">Trabalho Anterior</label><br>
+                    <label for="ano_inicio">Ano de Início: </label><br>
+                    <input type="number" id="ano_inicio" name="ano_inicio[]" required><br>
+                    <label for="ano_fim">Ano de Fim: </label><br>
+                    <input type="number" id="ano_fim" name="ano_fim[]"><br><br>
+                </div>
+            </div>
+            <button type="button" class="add-button" id="adicionar_experiencia">+ Adicionar experiência</button>
+        </div>             
+       
+        <input type="submit" value="Gerar Currículo">
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>
