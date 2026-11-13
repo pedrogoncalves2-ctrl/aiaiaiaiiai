@@ -32,16 +32,27 @@ const maximoHabilidades = 4;
 
             novaExperiencia.className = 'experience-item';
             novaExperiencia.innerHTML = `
-                <label>Trabalho:</label><br>
-                <textarea name="experiencia[]"></textarea><br>
-                <input type="radio" name="status_experiencia[${indice}]" value="atual">
-                <label>Trabalho Atual</label><br>
-                <input type="radio" name="status_experiencia[${indice}]" value="anterior">
-                <label>Trabalho Anterior</label><br>
-                <label>Ano de Início:</label><br>
-                <input type="number" name="ano_inicio[]"><br>
-                <label>Ano de Fim:</label><br>
-                <input type="number" name="ano_fim[]"><br><br>
+                <div class="campo">
+                    <label for="experiencia_${indice}">Trabalho</label>
+                    <textarea id="experiencia_${indice}" name="experiencia[]"></textarea>
+                </div>
+                <div class="campo">
+                    <span class="rotulo">Status</span>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="status_experiencia[${indice}]" value="atual"> Trabalho atual</label>
+                        <label class="opcao"><input type="radio" name="status_experiencia[${indice}]" value="anterior"> Trabalho anterior</label>
+                    </div>
+                </div>
+                <div class="linha">
+                    <div class="campo">
+                        <label for="ano_inicio_${indice}">Ano de início</label>
+                        <input type="number" id="ano_inicio_${indice}" name="ano_inicio[]" placeholder="Ex: 2020">
+                    </div>
+                    <div class="campo">
+                        <label for="ano_fim_${indice}">Ano de fim</label>
+                        <input type="number" id="ano_fim_${indice}" name="ano_fim[]" placeholder="Ex: 2023">
+                    </div>
+                </div>
             `;
 
             experienciasContainer.appendChild(novaExperiencia);
