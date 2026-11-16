@@ -8,8 +8,11 @@ $nascimento    = $_POST['nascimento'] ?? '';
 $nacionalidade = $_POST['nacionalidade'] ?? '';
 
 
-$formacoes          = $_POST['formation'] ?? []; 
+$curso              = trim($_POST['cursos'] ?? '');
+$status_formacao    = $_POST['status'] ?? '';
+$ano_conclusao      = $_POST['ano_conclusao'] ?? '';
 $habilidades        = $_POST['habilidades'] ?? [];
+$idiomas            = $_POST['idiomas'] ?? [];
 $experiencias       = $_POST['experiencia'] ?? [];
 $status_experiencia = $_POST['status_experiencia'] ?? [];
 $ano_inicio         = $_POST['ano_inicio'] ?? [];
@@ -19,13 +22,9 @@ $ano_fim            = $_POST['ano_fim'] ?? [];
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currículo - <?php echo $nome; ?></title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 700px; margin: 30px auto; line-height: 1.6; color: #333; }
-        h1 { border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 10px; }
-        h2 { background: #f0f0f0; padding: 6px 10px; margin-top: 25px; font-size: 18px; }
-        p { margin: 4px 0; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -36,14 +35,18 @@ $ano_fim            = $_POST['ano_fim'] ?? [];
     <p><strong>Data de Nascimento:</strong> <?php echo $nascimento; ?></p>
     <p><strong>Nacionalidade:</strong> <?php echo $nacionalidade; ?></p>
 
-    <?php if (!empty($formacoes)): ?>
+    <?php if ($curso !== ''): ?>
         <h2>Formação Acadêmica</h2>
         <ul>
-            <?php foreach ((array)$formacoes as $item): ?>
-                <?php if ($item !== ''): ?>
-                    <li><?php echo $item; ?></li>
+            <li>
+                <?php echo $curso; ?>
+                <?php if ($status_formacao !== ''): ?>
+                    <br>Status: <?php echo $status_formacao; ?>
                 <?php endif; ?>
-            <?php endforeach; ?>
+                <?php if ($ano_conclusao !== ''): ?>
+                    <br>Ano de conclusão/Ano atual: <?php echo $ano_conclusao; ?>
+                <?php endif; ?>
+            </li>
         </ul>
     <?php endif; ?>
 
